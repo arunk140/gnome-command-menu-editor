@@ -1,0 +1,86 @@
+[
+    {
+        "title": "Termimal",
+        "command": "gnome-terminal",
+        "icon": "utilities-terminal"
+    },
+    {
+        "title": "File Manager",
+        "command": "nautilus",
+        "icon": "system-file-manager"
+    },
+    {
+        "type": "separator"
+    },
+    {
+        "title": "Web Browser",
+        "command": "firefox",
+        "icon": "web-browser"
+    },
+    {
+        "title": "Gmail",
+        "command": "firefox https://mail.google.com/",
+        "icon": "mail-send"
+    },
+    {
+        "title": "Enable VNC Server",
+        "command": "x11vnc -rfbauth /home/asc/.vnc/passwd -bg",
+        "icon": "network-server"
+    },
+    {
+        "type": "separator"
+    },
+    {
+        "title": "SSH Connections",
+        "type": "submenu",
+        "submenu": [
+            {
+                "title": "10.144.1.2",
+                "command": "gnome-terminal -- bash -c 'ssh root@10.144.1.2'",
+                "icon": "utilities-terminal"
+            },
+            {
+            	"title": "Ubuntu VM",
+            	"command": "gnome-terminal -- bash -c 'ssh ark-ubuntu@192.168.122.188'",
+            	"icon": "utilities-terminal"
+            }
+        ]
+    },
+    {
+        "title": "Projects",
+        "type": "submenu",
+        "submenu": [
+            {
+                "title": "Project 1 - next.js",
+                "command": "code /home/Git/Project1/"
+            }
+        ]
+    },
+    {
+        "title": "Quick Commands",
+        "type": "submenu",
+        "submenu": [
+            {
+                "title": "htop",
+                "command": "gnome-terminal -- bash -c 'htop'",
+                "icon": "utilities-terminal"
+            }
+        ]
+    },
+    {
+        "title": "Web Services",
+        "type": "submenu",
+        "submenu": [
+            {
+                "title": "Google",
+                "command": "firefox https://www.google.com/",   
+                "icon": "x-office-document"
+            },
+            {
+                "title": "Nginx Proxy Manager",
+                "command": "firefox http://localhost:81/",
+                "icon": "preferences-system-network"
+            }
+        ]
+    }
+]

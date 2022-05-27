@@ -1,0 +1,15 @@
+{
+    "menu": [
+      {
+        "title": "Termimal",
+        "command": "gnome-terminal",
+        "icon": "utilities-terminal"
+      },
+      {
+        "title": "File Manager",
+        "command": "nautilus",
+        "icon": "system-file-manager"
+      }
+    ],
+    "text": "ABC"
+}
