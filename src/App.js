@@ -32,7 +32,7 @@ function App() {
   }
 
   useEffect(() => {
-    console.log("commands: ", commands);
+    // console.log("commands: ", commands);
     textareaRef.current.value = exportableCommands(commands);
   }, [commands]);
 
@@ -51,7 +51,7 @@ function App() {
   };
 
   let copyToClipboard = (text) => {
-    navigator.clipboard.writeText(exportableCommands(text));
+    // navigator.clipboard.writeText(exportableCommands(text));
   };
 
   let updateFromTextarea = () => {

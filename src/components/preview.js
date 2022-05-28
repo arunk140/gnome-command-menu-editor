@@ -7,7 +7,7 @@ import round from "../icons/mail-mark-unread-symbolic.svg"
 
 import './preview.css';
 import { Icon } from "./icon";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 function Menu(props) {
   let menu = [
@@ -23,9 +23,6 @@ function Menu(props) {
     }
   ];
   let [menuOpenArrays, setMenuOpenArrays] = useState(Array(menu.length).fill(0));
-  useEffect(() => {
-    console.log("menuOpenArrays", menuOpenArrays);
-  }, [menuOpenArrays]);
   let parentIcon = props.parent || {
     top: 0,
     left: 0,
