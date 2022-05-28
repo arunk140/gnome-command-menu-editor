@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useEffect, useRef, useState } from 'react';
 import './App.css';
 import Preview from './components/preview';
@@ -5,6 +6,7 @@ import defaultIcon from './icons/default.svg';
 
 import example1 from './examples/sample-1.json';
 import example2 from './examples/sample-2.json';
+import { IconSelector } from './components/icon';
 
 function App() {
   let defaultCommands = {
@@ -12,7 +14,11 @@ function App() {
     "menu": []
   }
   
-  let [commands, setCommands] = useState(defaultCommands);
+  let [commands, setCommands] = useState({
+    ...defaultCommands,
+    menu: example2
+  });
+
   let textareaRef = useRef();
 
   let exportableCommands = (cmds) => {
@@ -49,13 +55,18 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="App">
       <Preview commands={commands}/>
+      
       <button onClick={() => updateCommands(example1)}>Example 1</button>
       <button onClick={() => updateCommands(example2)}>Example 2</button>
       <button onClick={() => copyToClipboard(commands)}>Copy to Clipboard</button>
+      
+      <IconSelector />
 
-      <textarea ref={textareaRef} style={{width: "100%", height: "200px"}} defaultValue={exportableCommands(commands)}></textarea>
+      <br />
+      <textarea ref={textareaRef} style={{width: "300px", height: "200px"}} defaultValue={exportableCommands(commands)} />
+      <br />
 
       <input type="file" id="file" onChange={(e) => {
         let file = e.target.files[0];

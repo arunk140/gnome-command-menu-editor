@@ -1,4 +1,53 @@
+.Preview {
+    background-color: var(--topBarBackground);
+    color: var(--topBarForeground);
+}
+
+.Menu {
+    background-color: var(--menuBackground);
+    color: var(--menuForeground);
+    position: absolute;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+}
+
 .MenuItem {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 5px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    line-height: 24px;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+.MenuItem:hover {
+    background-color: var(--menuItemHoverBackground);
+}
+
+.IconButton {
+    width: 15px;
+    height: 15px;
+    margin: 0 5px;
+}
+
+.Invert {
+    filter: invert(100%);
+}
+
+.Separator {
+    height: 1px;
+    background-color: var(--separatorBackground);
+    margin: 5px 0;
+}
+
+.topBarMenuItem {
     border-radius: 30px;
     flex-grow: 1;
     padding: 0 10px;
@@ -9,10 +58,10 @@
     padding: 0 20px !important;
 }
 
-.MenuItem:focus, .MenuItem:hover {
-    background-color: #3d3b3b;
+.topBarMenuItem:focus, .topBarMenuItem:hover {
+    background-color: var(--topBarMenuItemHoverBackground);
 }
 
-.MenuItem:active {
-    background-color: #4d4b4b;
+.topBarMenuItem:active {
+    background-color: var(--topBarMenuItemActiveForeground);
 }

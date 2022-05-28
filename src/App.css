@@ -1,6 +1,18 @@
-.App {
-  text-align: center;
+:root {
+  --topBarBackground: #211f1f;
+  --topBarForeground: #dddddd;
+  --topBarMenuItemHoverBackground: #3d3b3b;
+  --topBarMenuItemActiveForeground: #4d4b4b;
+  --menuBackground: #33302f;
+  --menuForeground: #e3e3e3;
+  --menuItemHoverBackground: #3e3a39;
+  --separatorBackground: #2c2928;
 }
+
 body {
   background-color: #363636;
+}
+
+.App {
+  text-align: center;
 }
