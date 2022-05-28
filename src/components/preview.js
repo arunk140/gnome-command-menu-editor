@@ -3,10 +3,11 @@ import shutdown from "../icons/system-shutdown-symbolic.svg"
 import wifi from "../icons/network-wireless-signal-excellent-symbolic.svg"
 import battery from "../icons/battery-level-80-charging-symbolic.svg"
 import panEnd from "../icons/pan-end-symbolic.svg"
+import round from "../icons/mail-mark-unread-symbolic.svg"
 
 import './preview.css';
 import { Icon } from "./icon";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function Menu(props) {
   let menu = [
@@ -20,7 +21,11 @@ function Menu(props) {
     {
       title: "Reload",
     }
-  ]
+  ];
+  let [menuOpenArrays, setMenuOpenArrays] = useState(Array(menu.length).fill(0));
+  useEffect(() => {
+    console.log("menuOpenArrays", menuOpenArrays);
+  }, [menuOpenArrays]);
   let parentIcon = props.parent || {
     top: 0,
     left: 0,
@@ -37,11 +42,36 @@ function Menu(props) {
           return <div key={index} className="Separator"/>
         }
         if (!item.title) { return null; }
-        
+        let isSubMenu = item.type === "submenu";
+        if (isSubMenu && !item.submenu) { return null; }
+        let isSubMenuClosed = menuOpenArrays[index] === 0 || menuOpenArrays[index] === false;
+        let subMenuIconCls = "IconButton " + (isSubMenuClosed ? " Invert" : " Rotate90");
+        let menuCls = "MenuItem" + (isSubMenu ? (isSubMenuClosed ? " Sub" : " Sub Open") : "");
         return (
-          <div key={index} className={"MenuItem" + (item.type === "submenu" ? " SubMenuItem" : "")}>
-            <span>{item.title}</span>
-            {item.type === "submenu" ? <Icon src={panEnd} alt="submenu" className="IconButton Invert"/> : null}
+          <div key={index}>
+            <div className={menuCls} onClick={() => {
+              if (isSubMenu) {
+                let newState = !menuOpenArrays[index];
+                let newMenuOpenArrays = Array(menu.length).fill(0);
+                newMenuOpenArrays[index] = newState;
+                setMenuOpenArrays(newMenuOpenArrays);
+              } else {
+                console.log("clicked", item.command);
+              }
+            }}>
+              {(!isSubMenu && item.icon) ? <Icon src={round} alt="icon" className="IconButton Invert"/> : null}
+              <span>{item.title}</span>
+              {isSubMenu ? <Icon src={panEnd} alt="submenu" className={subMenuIconCls}/> : null}
+            </div>
+            {isSubMenu ? item.submenu.map((subItem, subIndex) => {
+              if (!subItem.title) { return null; }
+              return (
+                <div key={subIndex} className={"MenuItem SubMenuItem" + (isSubMenuClosed ? " Hidden" : "")}>
+                  {(subItem.icon) ? <Icon src={round} alt="icon" className="IconButton Invert"/> : null}
+                  <span>{subItem.title}</span>
+                </div>
+              );
+            }) : null}
           </div>
         );
       })}

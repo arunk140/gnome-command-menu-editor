@@ -27,8 +27,41 @@
     transition: background-color 0.2s;
 }
 
-.SubMenuItem {
+.MenuItem.Hidden {
+    display: none;
+}
+
+.Rotate90 {
+    transform: rotate(90deg);
+    transition: transform 0.2s;
+}
+
+.MenuItem span {
+    flex-grow: 1;
+}
+
+.MenuItem.Sub {
     padding-right: 5px;
+}
+
+.MenuItem.Sub.Open {
+    background-color: #fbbf7b;
+    color: #1a130d;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.SubMenuItem {
+    background-color: #262423;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.SubMenuItem:last-child {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .MenuItem:hover {
@@ -36,9 +69,10 @@
 }
 
 .IconButton {
-    width: 15px;
+    /* width: 15px; */
     height: 15px;
     margin: 0 5px;
+    transition: transform 0.2s;
 }
 
 .Invert {
