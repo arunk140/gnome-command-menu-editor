@@ -54,6 +54,10 @@ function App() {
     navigator.clipboard.writeText(exportableCommands(text));
   };
 
+  let updateFromTextarea = () => {
+    updateCommands(JSON.parse(textareaRef.current.value));
+  };
+
   return (
     <div className="App">
       <Preview commands={commands}/>
@@ -67,7 +71,8 @@ function App() {
       <br />
       <textarea ref={textareaRef} style={{width: "300px", height: "200px"}} defaultValue={exportableCommands(commands)} />
       <br />
-
+      <button onClick={() => updateFromTextarea()}>Update</button>
+      <br />
       <input type="file" id="file" onChange={(e) => {
         let file = e.target.files[0];
         let reader = new FileReader();

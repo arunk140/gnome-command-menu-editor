@@ -39,7 +39,7 @@ function Menu(props) {
         if (!item.title) { return null; }
         
         return (
-          <div key={index} className="MenuItem">
+          <div key={index} className={"MenuItem" + (item.type === "submenu" ? " SubMenuItem" : "")}>
             <span>{item.title}</span>
             {item.type === "submenu" ? <Icon src={panEnd} alt="submenu" className="IconButton Invert"/> : null}
           </div>
