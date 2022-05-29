@@ -1,6 +1,7 @@
 .Preview {
     background-color: var(--topBarBackground);
     color: var(--topBarForeground);
+    user-select: none;
 }
 
 .Menu {
@@ -9,7 +10,9 @@
     position: absolute;
     padding: 5px;
     border-radius: 5px;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--menuShadow);
+    border: var(--menuBorder);
+    user-select: none;
 }
 
 .MenuItem {
@@ -45,14 +48,15 @@
 }
 
 .MenuItem.Sub.Open {
-    background-color: #fbbf7b;
-    color: #1a130d;
+    background-color: var(--subMenuOpenBackground);
+    color: var(--subMenuOpenForeground);
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
 }
 
 .SubMenuItem {
-    background-color: #262423;
+    background-color: var(--subMenuBackground);
+    color: var(--subMenuForeground);
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
     border-bottom-left-radius: 0px;

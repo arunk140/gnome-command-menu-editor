@@ -44,6 +44,10 @@ function Menu(props) {
         let isSubMenuClosed = menuOpenArrays[index] === 0 || menuOpenArrays[index] === false;
         let subMenuIconCls = "IconButton " + (isSubMenuClosed ? " Invert" : " Rotate90");
         let menuCls = "MenuItem" + (isSubMenu ? (isSubMenuClosed ? " Sub" : " Sub Open") : "");
+        let onClickAction = (menuItem) => {
+          if (!menuItem.command) { return; }
+          console.log("clicked", menuItem.command);
+        }
         return (
           <div key={index}>
             <div className={menuCls} onClick={() => {
@@ -53,7 +57,7 @@ function Menu(props) {
                 newMenuOpenArrays[index] = newState;
                 setMenuOpenArrays(newMenuOpenArrays);
               } else {
-                console.log("clicked", item.command);
+                onClickAction(item);
               }
             }}>
               {(!isSubMenu && item.icon) ? <Icon src={round} alt="icon" className="IconButton Invert"/> : null}
@@ -63,7 +67,7 @@ function Menu(props) {
             {isSubMenu ? item.submenu.map((subItem, subIndex) => {
               if (!subItem.title) { return null; }
               return (
-                <div key={subIndex} className={"MenuItem SubMenuItem" + (isSubMenuClosed ? " Hidden" : "")}>
+                <div key={subIndex} className={"MenuItem SubMenuItem" + (isSubMenuClosed ? " Hidden" : "")} onClick={()=>{onClickAction(subItem)}}>
                   {(subItem.icon) ? <Icon src={round} alt="icon" className="IconButton Invert"/> : null}
                   <span>{subItem.title}</span>
                 </div>

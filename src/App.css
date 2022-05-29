@@ -1,11 +1,24 @@
 :root {
   --topBarBackground: #211f1f;
   --topBarForeground: #dddddd;
+  
+  --menuBorder: solid 1px rgba(255, 255, 255, 0.04);
+  --menuShadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+  
   --topBarMenuItemHoverBackground: #3d3b3b;
   --topBarMenuItemActiveForeground: #4d4b4b;
+  
   --menuBackground: #33302f;
   --menuForeground: #e3e3e3;
+
   --menuItemHoverBackground: #3e3a39;
+
+  --subMenuBackground: #262423;
+  --subMenuForeground: #e3e3e3;
+
+  --subMenuOpenBackground: #fbbf7b;
+  --subMenuOpenForeground: #1a130d;
+
   --separatorBackground: #2c2928;
 }
 
