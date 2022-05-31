@@ -69,7 +69,7 @@ function App() {
       <IconSelector />
 
       <br />
-      <textarea ref={textareaRef} style={{width: "300px", height: "200px"}} defaultValue={exportableCommands(commands)} />
+      <textarea ref={textareaRef} style={{width: "100%", height: "100vh"}} defaultValue={exportableCommands(commands)} />
       <br />
       <button onClick={() => updateFromTextarea()}>Update</button>
       <br />
